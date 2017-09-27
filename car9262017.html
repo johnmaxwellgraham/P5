@@ -1,0 +1,85 @@
+<html>
+    <head>
+      <title> p5 challenge</title>
+    </head>
+    <body>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script type="text/javaScript">
+    var y
+    var x = 240;
+    var z = false;
+    var canvas;
+    var clickx;
+    var clicky;
+    var honkArray = [];
+
+      function setup() {
+      canvas = createCanvas(1430, 480);
+
+      }
+
+      function draw() {
+        background('lightblue');
+        fill('lightgrey');
+        rect(-1, 430, 1430, 80);
+        fill('black');
+        ellipse(x + 51, 424, 10, 10);
+        ellipse(x + 91, 424, 10, 10);
+        rect(x + 31,414,8,4);
+        fill('yellow');
+        rect(x + 40, 398, 61, 20);
+        rect(x + 80,373, 21, 25);
+        fill('white');
+        rect(x + 84,377,13,17);
+        fill('green');
+        rect(x + 44,390,8,8);
+        fill('blue');
+        rect(x + 56,390,8,8);
+        fill('red');
+        rect(x + 68,390,8,8);
+        fill('grey');
+        rect(x + 50,382,8,8);
+        fill('orange');
+        rect(x + 62,382,8,8);
+        fill('yellow');
+        rect(x + 56,374,8,8);
+
+        fill('red');
+        if (z === true){
+          text(honkArray, clickx, clicky);
+        }
+        if (y === true) {
+          x-=15;
+        } else if (y === false) {
+          x+=15;
+        }
+        if (x >= 1290) {
+
+          y = null;
+        } else if (x <= 0) {
+          x = 0;
+        }
+      }
+      function keyPressed() {
+        if (keyCode === LEFT_ARROW) {
+          y = true;
+        } else if (keyCode === RIGHT_ARROW) {
+          y = false;
+          }
+      }
+
+
+      function mouseClicked() {
+        clickx = mouseX;
+        clicky = mouseY;
+        z = true;
+        console.log(honkArray.length);
+        if (honkArray.length === 0) {
+        honkArray.unshift('Honk!!!');
+      } else {
+        honkArray.unshift('Honk');
+      }
+      }
+    </script>
+</html>
