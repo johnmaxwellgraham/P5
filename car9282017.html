@@ -13,6 +13,29 @@
     var clickx;
     var clicky;
     var honkArray = [];
+    function trafficJam (color, carX) {
+      fill('black');
+      ellipse(carX + x + 51, 424, 10, 10);
+      ellipse(carX + x + 91, 424, 10, 10);
+      rect(carX + x + 31,414,8,4);
+      fill(color);
+      rect(carX + x + 40, 398, 61, 20);
+      rect(carX + x + 80,373, 21, 25);
+      fill('white');
+      rect(carX + x + 84,377,13,17);
+      fill('green');
+      rect(carX + x + 44,390,8,8);
+      fill('blue');
+      rect(carX + x + 56,390,8,8);
+      fill('red');
+      rect(carX + x + 68,390,8,8);
+      fill('grey');
+      rect(carX + x + 50,382,8,8);
+      fill('orange');
+      rect(carX + x + 62,382,8,8);
+      fill('yellow');
+      rect(carX + x + 56,374,8,8);
+  }
       function setup() {
       canvas = createCanvas(1430, 480);
       }
@@ -20,56 +43,33 @@
         background('lightblue');
         fill('lightgrey');
         rect(-1, 430, 1430, 80);
-        function trafficJam (color, carX) {
-          fill('black');
-          ellipse(carX + x + 51, 424, 10, 10);
-          ellipse(carX + x + 91, 424, 10, 10);
-          rect(carX + x + 31,414,8,4);
-          fill(color);
-          rect(carX + x + 40, 398, 61, 20);
-          rect(carX + x + 80,373, 21, 25);
-          fill('white');
-          rect(carX + x + 84,377,13,17);
-          fill('green');
-          rect(carX + x + 44,390,8,8);
-          fill('blue');
-          rect(carX + x + 56,390,8,8);
-          fill('red');
-          rect(carX + x + 68,390,8,8);
-          fill('grey');
-          rect(carX + x + 50,382,8,8);
-          fill('orange');
-          rect(carX + x + 62,382,8,8);
-          fill('yellow');
-          rect(carX + x + 56,374,8,8);
-      }
-      trafficJam('pink',-270);
-      trafficJam('brown',-170);
-      trafficJam('orange',-85);
-      trafficJam('blue',0);
-      trafficJam('yellow',85);
-      trafficJam('red',170);
-      trafficJam('green',255);
-      trafficJam('pink',340);
-      trafficJam('brown',425);
-      trafficJam('orange',510);
-      trafficJam('brown',595);
-      trafficJam('orange',680);
-      trafficJam('blue',765);
-      fill('red');
-      if (z === true){
-        text(honkArray, clickx, clicky);
-      }
-      if (y === true) {
-        x-=5;
-      } else if (y === false) {
-        x+=5;
-      }
-      if (x >= 1290) {
-        y = null;
-      } else if (x <= 0) {
-          x = 0;
+        trafficJam('pink',-270);
+        trafficJam('brown',-170);
+        trafficJam('orange',-85);
+        trafficJam('blue',0);
+        trafficJam('yellow',85);
+        trafficJam('red',170);
+        trafficJam('green',255);
+        trafficJam('pink',340);
+        trafficJam('brown',425);
+        trafficJam('orange',510);
+        trafficJam('brown',595);
+        trafficJam('orange',680);
+        trafficJam('blue',765);
+        fill('red');
+        if (z === true){
+          text(honkArray, clickx, clicky);
         }
+        if (y === true) {
+          x-=5;
+        } else if (y === false) {
+          x+=5;
+        }
+        if (x >= 1290) {
+          y = null;
+        } else if (x <= 0) {
+            x = 0;
+          }
       }
       function keyPressed() {
         if (keyCode === LEFT_ARROW) {
