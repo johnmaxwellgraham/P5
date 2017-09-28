@@ -46,19 +46,31 @@
         fill('yellow');
         rect(carX + x + 56,374,8,8);
       }
+
+
+      trafficJam('pink',-270);
+      trafficJam('brown',-170);
+      trafficJam('orange',-85);
       trafficJam('blue',0);
       trafficJam('yellow',85);
       trafficJam('red',170);
       trafficJam('green',255);
       trafficJam('pink',340);
+      trafficJam('brown',425);
+      trafficJam('orange',510);
+      trafficJam('brown',595);
+      trafficJam('orange',680);
+      trafficJam('blue',765);
+
         fill('red');
+
         if (z === true){
           text(honkArray, clickx, clicky);
         }
         if (y === true) {
-          x-=15;
+          x-=5;
         } else if (y === false) {
-          x+=15;
+          x+=5;
         }
         if (x >= 1290) {
 
