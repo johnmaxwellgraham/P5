@@ -6,7 +6,7 @@
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script type="text/javaScript">
-    var y
+    var y;
     var x = 240;
     var z = false;
     var canvas;
@@ -46,8 +46,6 @@
         fill('yellow');
         rect(carX + x + 56,374,8,8);
       }
-
-
       trafficJam('pink',-270);
       trafficJam('brown',-170);
       trafficJam('orange',-85);
@@ -61,21 +59,18 @@
       trafficJam('brown',595);
       trafficJam('orange',680);
       trafficJam('blue',765);
-
-        fill('red');
-
-        if (z === true){
-          text(honkArray, clickx, clicky);
-        }
-        if (y === true) {
-          x-=5;
-        } else if (y === false) {
-          x+=5;
-        }
-        if (x >= 1290) {
-
-          y = null;
-        } else if (x <= 0) {
+      fill('red');
+      if (z === true){
+        text(honkArray, clickx, clicky);
+      }
+      if (y === true) {
+        x-=5;
+      } else if (y === false) {
+        x+=5;
+      }
+      if (x >= 1290) {
+        y = null;
+      } else if (x <= 0) {
           x = 0;
         }
       }
