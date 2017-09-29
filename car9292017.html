@@ -1,0 +1,92 @@
+<html>
+    <head>
+      <title> p5 challenge</title>
+    </head>
+    <body>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script type="text/javaScript">
+    var y;
+    var x = 0;
+    var z = false;
+    var canvas;
+    var clickx;
+    var clicky;
+    var honkArray = [];
+    function trafficJam (color,speed) {
+      fill('black');
+      ellipse(speed * x + 51, 424, 10, 10);
+      ellipse(speed * x + 91, 424, 10, 10);
+      rect(speed * x + 31,414,8,4);
+      fill(color);
+      rect(speed * x + 40, 398, 61, 20);
+      rect(speed * x + 80,373, 21, 25);
+      fill('white');
+      rect(speed * x + 84,377,13,17);
+      fill('green');
+      rect(speed * x + 44,390,8,8);
+      fill('blue');
+      rect(speed * x + 56,390,8,8);
+      fill('red');
+      rect(speed * x + 68,390,8,8);
+      fill('grey');
+      rect(speed * x + 50,382,8,8);
+      fill('orange');
+      rect(speed * x + 62,382,8,8);
+      fill('yellow');
+      rect(speed * x + 56,374,8,8);
+  }
+      function setup() {
+      canvas = createCanvas(1430, 480);
+      }
+      function draw() {
+        background('lightblue');
+        fill('lightgrey');
+        rect(-1, 430, 1430, 80);
+        trafficJam('pink',.4);
+        trafficJam('brown',1.15);
+        trafficJam('orange',2.12);
+        trafficJam('blue',1.75);
+        trafficJam('yellow',2);
+        trafficJam('red',1.25);
+        trafficJam('green',2.35);
+        trafficJam('pink',1.2);
+        trafficJam('brown',1.4);
+        trafficJam('orange',2.1);
+        trafficJam('brown',.15);
+        trafficJam('orange',2.45);
+        trafficJam('blue',.75);
+        fill('red');
+        if (z === true){
+          text(honkArray, clickx, clicky);
+        }
+        if (y === true) {
+          x-=5;
+        } else if (y === false) {
+          x+=5;
+        }
+        if (x >= 1290) {
+          y = null;
+        } else if (x <= 0) {
+            x = 0;
+          }
+      }
+      function keyPressed() {
+        if (keyCode === LEFT_ARROW) {
+          y = true;
+        } else if (keyCode === RIGHT_ARROW) {
+          y = false;
+          }
+      }
+      function mouseClicked() {
+        clickx = mouseX;
+        clicky = mouseY;
+        z = true;
+        if (honkArray.length === 0) {
+        honkArray.unshift('Honk!!!');
+        } else {
+          honkArray.unshift('Honk');
+        }
+      }
+    </script>
+</html>
