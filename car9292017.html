@@ -13,28 +13,28 @@
     var clickx;
     var clicky;
     var honkArray = [];
-    function trafficJam (color,speed) {
+    function trafficJam (color,speed, height) {
       fill('black');
-      ellipse(speed * x + 51, 424, 10, 10);
-      ellipse(speed * x + 91, 424, 10, 10);
-      rect(speed * x + 31,414,8,4);
+      ellipse(speed * x + 51, 424 - height, 10, 10);
+      ellipse(speed * x + 91, 424 - height, 10, 10);
+      rect(speed * x + 31,414 - height,8,4);
       fill(color);
-      rect(speed * x + 40, 398, 61, 20);
-      rect(speed * x + 80,373, 21, 25);
+      rect(speed * x + 40, 398 - height, 61, 20);
+      rect(speed * x + 80,373 - height, 21, 25);
       fill('white');
-      rect(speed * x + 84,377,13,17);
+      rect(speed * x + 84,377 - height,13,17);
       fill('green');
-      rect(speed * x + 44,390,8,8);
+      rect(speed * x + 44,390 - height,8,8);
       fill('blue');
-      rect(speed * x + 56,390,8,8);
+      rect(speed * x + 56,390 - height,8,8);
       fill('red');
-      rect(speed * x + 68,390,8,8);
+      rect(speed * x + 68,390 - height,8,8);
       fill('grey');
-      rect(speed * x + 50,382,8,8);
+      rect(speed * x + 50,382 - height,8,8);
       fill('orange');
-      rect(speed * x + 62,382,8,8);
+      rect(speed * x + 62,382 - height,8,8);
       fill('yellow');
-      rect(speed * x + 56,374,8,8);
+      rect(speed * x + 56,374 - height,8,8);
   }
       function setup() {
       canvas = createCanvas(1430, 480);
@@ -43,19 +43,13 @@
         background('lightblue');
         fill('lightgrey');
         rect(-1, 430, 1430, 80);
-        trafficJam('pink',.87);
-        trafficJam('brown',1.15);
-        trafficJam('orange',2.12);
-        trafficJam('blue',1.75);
-        trafficJam('yellow',2);
-        trafficJam('red',1.25);
-        trafficJam('green',2.35);
-        trafficJam('pink',1.2);
-        trafficJam('brown',1.4);
-        trafficJam('orange',2.1);
-        trafficJam('brown',.95);
-        trafficJam('orange',2.45);
-        trafficJam('blue',.75);
+        trafficJam('pink',.87, 0);
+        trafficJam('brown',1.15,75);
+        trafficJam('orange',2.12,150);
+        trafficJam('blue',1.75,225);
+        trafficJam('yellow',2,300);
+        trafficJam('red',1.25,375);
+
         fill('red');
         if (z === true){
           text(honkArray, clickx, clicky);
@@ -65,11 +59,7 @@
         } else if (y === false) {
           x+=5;
         }
-    //    if (x >= 1290) {
-    //      y = null;
-    //    } else if (x <= 0) {
-    //        x = 0;
-    //      }
+
       }
       function keyPressed() {
         if (keyCode === LEFT_ARROW) {
@@ -81,6 +71,7 @@
       function mouseClicked() {
         clickx = mouseX;
         clicky = mouseY;
+
         z = true;
         if (honkArray.length === 0) {
         honkArray.unshift('Honk!!!');
